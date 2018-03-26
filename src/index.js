@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import requireAuth from './components/require_authentication'
 import Header from './components/header'
 import Home from './components/home'
 import Resources from './components/resources'
@@ -18,7 +19,7 @@ ReactDOM.render(
       <div>
         <Header/>
         <Switch>
-          <Route path="/resources" component={Resources}/>
+          <Route path="/resources" component={requireAuth(Resources)}/>
           <Route path="/" component={Home}/>
         </Switch>
       </div>
